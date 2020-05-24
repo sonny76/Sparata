@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 주문서</title>
+    <!-- Quick start -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .mytitle {
+            background-image: url('https://lh3.googleusercontent.com/proxy/aJ4EIR3wP5mjYXCG2aqxHilAvHqACrH-ZrGo-bEfWDv13bgb7CPQB85mYFhzdRPY89Y1WHsKkig2L7PtCQ171dTF54RB89UqJVymchOzUA805D6D');
+            background-position: center;
+            background-size: cover;
+            width: 500px;
+            height: 800px;
+
+        }
+
+        .PRODUCT_NAME {
+            text-align: center;
+        }
+
+        .PRODUCT_COMMENT {
+            text-align: center;
+        }
+    </style>
+
+
+    <script>
+        function hey() {
+            alert('공적마스크 판매 약국을 방문하셔서 주문하시기 바랍니다.');
+        }
+    </script>
+
+
+</head>
+
+<body>
+
+
+    <div class="mytitle">
+    </div>
+
+    <div class=PRODUCT_NAME>
+        <h1>KF94 MASK <span>가격: 1,500원 /개</span></h1>
+    </div>
+   
+    <div class="ORDER_DETAILS">
+
+        <div class="PRODUCT_COMMENT">
+            <p class="card-text">마스크를 구매하셔서 코로나를 피하세요.클럽가셔서 꼭 착용하세요!!!</p>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">주문자 성함:</span>
+                </div>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">수량:</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+                <option selected>수량을 선택하세요...</option>
+                <option value="1">1개</option>
+                <option value="2">2개</option>
+                <option value="3">3개</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">주소:</span>
+            </div>
+            <input type="text" class="form-control">
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">전화 번호:</span>
+            </div>
+            <input type="text" class="form-control">
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">기타요청사항:</span>
+            </div>
+            <textarea class="form-control" aria-label="With textarea"></textarea>
+        </div>
+
+    </div>
+
+    <button onclick="hey()" type="button" class="btn btn-primary">주문하기</button>
+
+
+
+
+
+
+
+</body>
+
+</html>

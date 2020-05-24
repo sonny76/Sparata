@@ -1,0 +1,149 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 주문서</title>
+    <!-- Quick start -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- JQuery를 import 합니다 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+        .wrap {
+            width: 40rem;
+            margin: auto;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+        }
+
+        .priceperunit {
+            font-size: 25px;
+        }
+
+        .exchange {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+
+        function hey() {
+            let name = $('#name').val();
+            let qty = $('#inputGroupSelect01').val();
+            let add = $('#address').val();
+            let num = $('#tel').val();
+            if (name == '') {
+                alert('주문자 성함을 입력해 주세요')
+            } else if (qty == '수량을 선택하세요...') {
+                alert('수량을 입력해 주세요')
+            } else if (add == '') {
+                alert('주소를 입력해 주세요')
+            } else if (num == '') {
+                alert('전화번호를 입력해 주세요')
+            } else {
+                alert('주문이 완료 되었습니다.')
+            }
+
+            if (name != '' && qty != '' && add != '' && num != '') {
+                $(document).ready(function () {
+                    alert('로딩 완료!')
+                    $.ajax({
+                        type: "GET",
+                        url: 'https://api.manana.kr/exchange/rate.json',
+                        data: {},
+                        success: function (response) {
+                            let figure = response[1]['rate']
+                            $("#exchange_info").text(figure);
+                        }
+                    })
+                });
+
+            }
+            }       
+    </script>
+
+
+</head>
+
+<body>
+
+    <div class="wrap">
+
+        <div class="card" style="width: 40rem;">
+            <img class="card-img-top"
+                src="https://img.danawa.com/prod_img/500000/937/383/img/7383937_1.jpg?shrink=500:500&_v=20190306100739"
+                alt="Card image cap">
+            <div class="card-body">
+                <h1>KF94 MASK <span class="priceperunit">가격: 2,500원 /개</span></h1>
+                <h4>마스크를 구매하셔서 코로나를 피하세요!!!</h4>
+            </div>
+
+            <div class="exchange"> 달러-원 환율:
+                <span id="exchange_info"></span>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">주문자 성함:</span>
+                </div>
+                <input type="text" class="form-control" id="name">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">수량:</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>수량을 선택하세요...</option>
+                    <option value="1">1개</option>
+                    <option value="2">2개</option>
+                    <option value="3">3개</option>
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">주소:</span>
+                </div>
+                <input type="text" class="form-control" id="address">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">전화 번호:</span>
+                </div>
+                <input type="text" class="form-control" id="tel">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">기타요청사항:</span>
+                </div>
+                <textarea class="form-control" id="others" aria-label="With textarea"></textarea>
+            </div>
+
+            <div class="button">
+                <button onclick="hey()" id="btn-posting-box" type="button" class="btn btn-primary btn-lg">주문하기</button>
+            </div>
+
+        </div>
+
+
+</body>
+
+</html>
